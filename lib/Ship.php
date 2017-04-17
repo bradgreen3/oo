@@ -2,6 +2,8 @@
 
 class Ship
 {
+  private $id;
+
   private $name;
 
   private $weaponPower = 0;
@@ -53,6 +55,16 @@ class Ship
   public function doesGivenShipHaveMoreStrength($givenShip)
   {
     return $givenShip->strength > $this->strength;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
   }
 
   public function setName($name)
