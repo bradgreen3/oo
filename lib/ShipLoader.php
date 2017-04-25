@@ -5,14 +5,9 @@ class shipLoader
 
   private $pdo;
 
-  private $dbDsn;
-
-  private $dbUser;
-
-  public function __constructor($dbDsn, $dbUser)
+  public function __construct(PDO $pdo)
   {
-    $this->$dbDsn = $dbDsn;
-    $this->$dbUser = $dbUser;
+    $this->pdo = $pdo;
   }
 
   /**
@@ -71,13 +66,6 @@ class shipLoader
    */
   private function getPDO()
   {
-    if ($this->pdo === null) {
-      $pdo = new PDO($this->dbDsn, $this->dbUser);
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-      $this->pdo = $pdo;
-    }
-
     return $this->pdo;
   }
 }
